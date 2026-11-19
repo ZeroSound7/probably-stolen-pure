@@ -1,0 +1,17 @@
+# 构建产物
+bin/
+obj/
+*.user
+*.suo
+.vs/
+.idea/
+
+# 本地发布包（会复制 DLL、贴图与 AI 底图，属于构建产物）
+publish/content/
+publish/art/
+publish/candidates/
+publish/publish.generated.vdf
+
+# 系统杂项
+Thumbs.db
+.DS_Store

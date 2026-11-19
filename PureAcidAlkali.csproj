@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>PureAcidAlkali</AssemblyName>
+    <RootNamespace>PureAcidAlkali</RootNamespace>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+
+    <!--
+      游戏安装目录（提供 Probably Stolen_Data\Managed 下的游戏程序集）解析顺序：
+      1) dotnet build -p:GameDir="D:\...\Probably Stolen"
+      2) 环境变量 PROBABLY_STOLEN_DIR
+      3) 仓库仍放在游戏目录内时的开发布局（本文件向上两级）
+      游戏程序集不随仓库分发，必须指向本机已安装的游戏。
+    -->
+    <GameDir Condition="'$(GameDir)' == '' and '$(PROBABLY_STOLEN_DIR)' != ''">$(PROBABLY_STOLEN_DIR)</GameDir>
+    <GameDir Condition="'$(GameDir)' == '' and Exists('$(MSBuildThisFileDirectory)..\..\Probably Stolen_Data\Managed\Assembly-CSharp.dll')">$(MSBuildThisFileDirectory)..\..</GameDir>
+    <ManagedDir>$(GameDir)\Probably Stolen_Data\Managed</ManagedDir>
+  </PropertyGroup>
+
+  <Target Name="CheckGameDir" BeforeTargets="ResolveAssemblyReferences">
+    <Error Condition="!Exists('$(ManagedDir)\Assembly-CSharp.dll')"
+           Text="找不到游戏程序集：Probably Stolen_Data\Managed\Assembly-CSharp.dll。请设置环境变量 PROBABLY_STOLEN_DIR，或运行 dotnet build -p:GameDir=&quot;D:\...\Probably Stolen&quot;。" />
+  </Target>
+
+  <ItemGroup>
+    <Compile Include="src\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(ManagedDir)\Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>$(ManagedDir)\UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(ManagedDir)\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>$(ManagedDir)\Unity.TextMeshPro.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Manifest>
+  <ID>pure_acid_alkali</ID>
+  <Name>可能是纯的 / Probably Pure</Name>
+  <Author>dsh</Author>
+  <ModVersion>1.3.2</ModVersion>
+  <Description>新增一台 2×3 纯溶液净化机：放入含杂质的试剂与对应「工艺芯片」，过夜把杂质转化为纯溶液。芯片可重复使用：酸 / 碱 / 脂合剂 / N-羟基甲碱（保留稳定剂）/ 还原剂。质量决定纯度上限（98%→100%），性能决定每晚去除量（10 mL→20 mL），效率降低耗电。博士商店出售；机器 300，芯片 100。首次启用后需重启游戏，再载入存档。A single 2x3 purifier with reusable process chips for acid, base, lipobond agent, N-methylol base (the stabilizer is preserved) and reducing agent. Quality sets the purity cap (98%→100%), performance the nightly removal (10→20 mL), efficiency the power draw. Sold by Dr. Jackson; machine 300, chips 100. Restart the game after enabling, then load your save.</Description>
+  <GameVersions>
+    <Version>0.46D</Version>
+  </GameVersions>
+  <Prerequisites />
+  <Assemblies>
+    <Assembly>PureAcidAlkali.dll</Assembly>
+  </Assemblies>
+  <Capabilities />
+</Manifest>

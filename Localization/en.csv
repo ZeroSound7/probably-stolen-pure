@@ -1,0 +1,25 @@
+machine_name,Pure Solution Purifier
+machine_desc,Turns an impure solution into a pure solution.
+machine_flavor,The reagents from a chemical pack might be pure, but it is rather unlikely that a reagent is pure.
+label_module,Modules
+label_liquid,Solution
+label_chip,Process Chip
+note_name,Pure Solution Purifier - Manual
+note_body,The process chip decides what this machine purifies:\n· Acid / Base / Lipobond Agent / N-Methylol Base / Reducing Agent\n· The N-Methylol Base chip keeps the stabilizing agent and only removes impurities\n· Quality: purity cap 98%→100% (maxed at quality 50)\n· Performance: nightly removal 10 mL→20 mL (20 mL at performance 50)\n· Efficiency: lowers power draw (base 8)\n· Chips are reusable; power and a matching chip are required
+chip_acid_name,Process Chip: Acid
+chip_acid_desc,Insert into the Pure Solution Purifier to purify acid and remove the rest.
+chip_base_name,Process Chip: Base
+chip_base_desc,Insert into the Pure Solution Purifier to purify base and remove the rest.
+chip_lipobond_name,Process Chip: Lipobond Agent
+chip_lipobond_desc,Insert into the Pure Solution Purifier to purify lipobond agent and remove the rest.
+chip_methylol_name,Process Chip: N-Methylol Base
+chip_methylol_desc,Insert into the Pure Solution Purifier to purify N-methylol base while keeping the stabilizing agent.
+chip_reducing_name,Process Chip: Reducing Agent
+chip_reducing_desc,Insert into the Pure Solution Purifier to purify reducing agent and remove the rest.
+tooltip_no_chip,No process chip installed
+tooltip_chip,Process chip: {0}
+tooltip_cap,Purity cap (quality): {0}%
+tooltip_budget,Nightly removal (performance): {0} mL
+tooltip_removed,Impurities removed last night: {0} mL
+tooltip_hint,Quality raises the purity cap, performance raises removal, efficiency lowers power.
+chip_tooltip_use,Usable in: Pure Solution Purifier

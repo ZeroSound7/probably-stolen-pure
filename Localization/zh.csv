@@ -1,0 +1,25 @@
+machine_name,纯溶液净化机
+machine_desc,把含杂质溶液转化为纯溶液。
+machine_flavor,化学用品开出来的试剂可能是纯的，但是试剂是纯的有点不太可能。
+label_module,模组
+label_liquid,溶液容器
+label_chip,工艺芯片
+note_name,纯溶液净化机 · 使用说明
+note_body,本机通过更换「工艺芯片」决定提纯对象：\n· 酸 / 碱 / 脂合剂 / N-羟基甲碱 / 还原剂\n· N-羟基甲碱芯片会保留稳定剂，只去除杂质\n· 质量：纯度上限 98%→100%（质量 50 到顶）\n· 性能：每晚去除 10 mL→20 mL（性能 50 为 20 mL）\n· 效率：降低每次耗电（基础 8）\n· 芯片可重复使用；需要电源与对应芯片
+chip_acid_name,工艺芯片·酸
+chip_acid_desc,插入纯溶液净化机后，提纯酸并去除其他成分。
+chip_base_name,工艺芯片·碱
+chip_base_desc,插入纯溶液净化机后，提纯碱并去除其他成分。
+chip_lipobond_name,工艺芯片·脂合剂
+chip_lipobond_desc,插入纯溶液净化机后，提纯脂合剂并去除其他成分。
+chip_methylol_name,工艺芯片·N-羟基甲碱
+chip_methylol_desc,插入纯溶液净化机后，提纯 N-羟基甲碱，保留稳定剂，只去除杂质。
+chip_reducing_name,工艺芯片·还原剂
+chip_reducing_desc,插入纯溶液净化机后，提纯还原剂并去除其他成分。
+tooltip_no_chip,未安装工艺芯片
+tooltip_chip,工艺芯片：{0}
+tooltip_cap,纯度上限（质量）：{0}%
+tooltip_budget,每晚去除（性能）：{0} mL
+tooltip_removed,上次去除杂质：{0} mL
+tooltip_hint,质量提高纯度上限，性能提高去除量，效率降低耗电。
+chip_tooltip_use,可插入：纯溶液净化机
