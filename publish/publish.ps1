@@ -123,7 +123,8 @@ if (-not $SteamCmd) {
         $wingetSteamCmd,
         (Get-Command steamcmd -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source)
     ) | Where-Object { $_ -and (Test-Path $_) }
-    $SteamCmd = $candidates | Select-Object -First 1
+    # 优先用最近更新过的那个（steamcmd 会自更新，旧副本可能要重下几十 MB）
+    $SteamCmd = $candidates | Sort-Object { (Get-Item $_).LastWriteTime } -Descending | Select-Object -First 1
 }
 if (-not $SteamCmd) {
     throw '找不到 steamcmd.exe：请先安装（https://developer.valvesoftware.com/wiki/SteamCMD），或用 -SteamCmd 指定路径'
