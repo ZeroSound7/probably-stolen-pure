@@ -113,10 +113,14 @@ if (-not $Run) {
 
 if (-not $SteamAccount) { throw '-Run 需要 -SteamAccount <账号>（密码由 steamcmd 现场询问）' }
 if (-not $SteamCmd) {
+    $wingetSteamCmd = Get-ChildItem "$env:LOCALAPPDATA\Microsoft\WinGet\Packages" -Directory -Filter "Valve.SteamCMD*" -ErrorAction SilentlyContinue |
+        ForEach-Object { Get-ChildItem $_.FullName -Recurse -Filter "steamcmd.exe" -ErrorAction SilentlyContinue } |
+        Select-Object -First 1 -ExpandProperty FullName
     $candidates = @(
         $env:STEAMCMD,
         'D:\UseTools\steamcmd\steamcmd.exe',
         'C:\steamcmd\steamcmd.exe',
+        $wingetSteamCmd,
         (Get-Command steamcmd -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source)
     ) | Where-Object { $_ -and (Test-Path $_) }
     $SteamCmd = $candidates | Select-Object -First 1
